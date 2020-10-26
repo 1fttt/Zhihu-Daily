@@ -19,48 +19,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D82E9DBD-DC0D-4919-AFFB-DB1C7C055F67"
-            shouldBeEnabled = "No"
+            uuid = "6B7BF37A-BF20-42ED-9887-80809B028C22"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Zhihu&#x2014;Daily/home/Controller/HomepageViewController.m"
+            filePath = "Zhihu&#x2014;Daily/home/View/HomepageView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "-addView"
+            startingLineNumber = "232"
+            endingLineNumber = "232"
+            landmarkName = "-scrollViewDidScroll:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D9A49C36-3578-4C7C-AFF8-60DCFD2C3BB0"
+            uuid = "EA25F4FB-3F2A-482E-8049-7C3CBDA1925F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Zhihu&#x2014;Daily/home/Controller/HomepageViewController.m"
+            filePath = "Zhihu&#x2014;Daily/home/View/HomepageView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "-addView"
+            startingLineNumber = "248"
+            endingLineNumber = "248"
+            landmarkName = "-scrollViewDidScroll:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5B34C909-80C7-433B-80A4-BD536C7F8288"
+            uuid = "696A3034-19F6-4C40-90BE-3FFF1ACB4CBB"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Zhihu&#x2014;Daily/home/Controller/HomepageViewController.m"
+            filePath = "Zhihu&#x2014;Daily/home/View/HomepageView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            startingLineNumber = "240"
+            endingLineNumber = "240"
+            landmarkName = "-scrollViewDidScroll:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

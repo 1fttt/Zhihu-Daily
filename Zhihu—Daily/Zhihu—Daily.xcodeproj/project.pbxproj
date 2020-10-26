@@ -22,6 +22,7 @@
 		6CB2A4412538B6A4006C402A /* Zhihu_DailyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB2A4402538B6A4006C402A /* Zhihu_DailyUITests.m */; };
 		6CB2A4502538BE51006C402A /* HomepageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB2A44F2538BE51006C402A /* HomepageViewController.m */; };
 		6CB2A4532538BEA3006C402A /* HomepageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB2A4522538BEA3006C402A /* HomepageView.m */; };
+		6CB9D4E42546ECF9003901BD /* BeforeNewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB9D4E32546ECF9003901BD /* BeforeNewsModel.m */; };
 		6CD50558253BF98000F45ACC /* shezhi-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CD50557253BF98000F45ACC /* shezhi-2.png */; };
 		6CD5055E253C00BB00F45ACC /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CD5055D253C00BB00F45ACC /* 1.png */; };
 		6CE5C0CB253E7AD400F3F05E /* HomeTopStoriesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CE5C0CA253E7AD400F3F05E /* HomeTopStoriesView.m */; };
@@ -91,6 +92,8 @@
 		6CB2A44F2538BE51006C402A /* HomepageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomepageViewController.m; sourceTree = "<group>"; };
 		6CB2A4512538BEA3006C402A /* HomepageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomepageView.h; sourceTree = "<group>"; };
 		6CB2A4522538BEA3006C402A /* HomepageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomepageView.m; sourceTree = "<group>"; };
+		6CB9D4E22546ECF9003901BD /* BeforeNewsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeforeNewsModel.h; sourceTree = "<group>"; };
+		6CB9D4E32546ECF9003901BD /* BeforeNewsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeforeNewsModel.m; sourceTree = "<group>"; };
 		6CD50557253BF98000F45ACC /* shezhi-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shezhi-2.png"; sourceTree = "<group>"; };
 		6CD5055D253C00BB00F45ACC /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		6CE5C0C9253E7AD400F3F05E /* HomeTopStoriesView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeTopStoriesView.h; sourceTree = "<group>"; };
@@ -255,6 +258,8 @@
 			children = (
 				6CFCD10D253AECA2009839A0 /* HomepageModel.h */,
 				6CFCD10E253AECA2009839A0 /* HomepageModel.m */,
+				6CB9D4E22546ECF9003901BD /* BeforeNewsModel.h */,
+				6CB9D4E32546ECF9003901BD /* BeforeNewsModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -500,6 +505,7 @@
 				6CB2A42C2538B6A4006C402A /* main.m in Sources */,
 				6C7FFAD8253C078B0039313B /* MyCollectionViewController.m in Sources */,
 				6C431A38253DD163008D7B8A /* HomeTopStoriesViewController.m in Sources */,
+				6CB9D4E42546ECF9003901BD /* BeforeNewsModel.m in Sources */,
 				6CFCD121253B69DB009839A0 /* MypageView.m in Sources */,
 				6CB2A4532538BEA3006C402A /* HomepageView.m in Sources */,
 				6C7FFADE253C09080039313B /* HomepageTableViewCell.m in Sources */,

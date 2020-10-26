@@ -15,15 +15,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface HomepageViewController : UIViewController
 
 @property (nonatomic, strong) HomepageView *homeView;
-@property (nonatomic, strong) HomepageModel *model;
-
-@property (nonatomic, strong) NSTimer *timer;
-@property (nonatomic, strong) NSMutableArray *imageArray;
-
-@property (nonatomic, strong) UIScrollView *scrollView;
-@property (nonatomic, strong) UIPageControl *pageController;
-
-@property (nonatomic, copy) NSMutableArray *topURLArray;
 
 @end
 
