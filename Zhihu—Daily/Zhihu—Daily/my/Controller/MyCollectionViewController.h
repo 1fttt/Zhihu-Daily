@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class MyCollectionView;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MyCollectionViewController : UIViewController
+
+@property (nonatomic, strong) MyCollectionView *myView;
 
 @end
 

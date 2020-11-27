@@ -16,10 +16,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property HomeTopStoriesView *topStoriesView;
 
-@property (strong, nonatomic) WKWebView *webView;
-@property void (^urlBlock) (NSString *str);
-@property (nonatomic, copy) NSString *urlStr;
 @property (nonatomic, copy) NSArray *urlArray;
+@property (nonatomic, copy) NSMutableArray *idArray;
+
+@property (nonatomic, strong) NSMutableArray *extraArray;
+
+@property (nonatomic, copy) NSString *longCommentNumStr;
+@property (nonatomic, copy) NSString *shortCommentNumStr;
+@property (nonatomic, copy) NSString *commentNumStr;
+@property (nonatomic, assign) int currentpage;
+
+@property (nonatomic, assign) NSInteger select;
+
+
+@property (nonatomic, strong) NSMutableArray *titleArray;
+@property (nonatomic, strong) NSMutableArray *imageDataArray;
+
+@property (nonatomic, strong) UIBarButtonItem *item4;
+
 @end
 
 NS_ASSUME_NONNULL_END

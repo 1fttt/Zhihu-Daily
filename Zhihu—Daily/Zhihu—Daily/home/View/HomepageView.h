@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "HomepageModel.h"
-
+#import "ExtraModel.h"
 #import "Masonry.h"
 
 @class BeforeNewsModel;
@@ -26,14 +26,34 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIPageControl *pageController;
 
 
+//@property (nonatomic, copy) NSMutableArray *topStoriesURLArr;
 
-@property (nonatomic, copy) NSMutableArray *topURLArray;
-
+//轮播图图片按钮
 @property (nonatomic, strong) NSMutableArray *imageViewButtonArray;
-//@property (nonatomic, strong) UIButton *imageViewButton;
+
 
 @property (nonatomic, strong) BeforeNewsModel *beforeModel;
 @property (nonatomic, strong) NSMutableArray *beforeNewsArray;
+
+@property (nonatomic, copy) NSString *beforeURLStr;
+
+@property (nonatomic, assign) long currentcell;
+
+//轮播图文章url、id、extra
+@property (nonatomic, strong) NSMutableArray *topURLArray;
+@property (nonatomic, strong) NSMutableArray *idArray;
+@property (nonatomic, strong) NSMutableArray *topExtraArray;
+@property (nonatomic, strong) NSMutableArray *titleArray;
+@property (nonatomic, strong) NSMutableArray *imageDataArray;
+
+//cell文章、id、extra
+@property (nonatomic, strong) NSMutableArray *cellURLArray;
+@property (nonatomic, strong) NSMutableArray *cellidArray;
+@property (nonatomic, strong) NSMutableArray *cellExtraArray;
+@property (nonatomic, strong) NSMutableArray *cellTitleArray;
+@property (nonatomic, strong) NSMutableArray *cellImageDataArray;
+
+
 
 
 - (void)initView;

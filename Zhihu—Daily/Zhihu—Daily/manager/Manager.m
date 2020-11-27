@@ -7,7 +7,7 @@
 //
 
 #import "Manager.h"
-
+#import <pthread.h>
 @implementation Manager 
 
 static Manager *manager = nil;
@@ -21,6 +21,7 @@ static Manager *manager = nil;
     });
     return manager;
 }
+
 
 - (void)getModelSucceed:(zhihuLatestBlock)succeedBlock error:(errorBlock)errorblock {
     NSString *urlStr = [NSString stringWithFormat:@"https://news-at.zhihu.com/api/4/news/latest"];
@@ -52,11 +53,13 @@ static Manager *manager = nil;
 
 }
 
-- (void)getBeforeNewsModel:(BeforeNewsBlock)succeedBlock error:(errorBlock)errorblock {
-//- (void)getBeforeNewsModel:(BeforeNewsBlock)succeedBlock error:(errorBlock)errorblock urlStr:(NSString *)urlstr {
+
+//之前文章
+- (void)getBeforeNewsModel:(BeforeNewsBlock)succeedBlock error:(errorBlock)errorblock urlStr:(NSString *)urlstr {
     
     
-    NSString * urlStr = @"https://news.at.zhihu.com/api/4/news/before/20201026";
+    NSString * urlStr = [NSString stringWithFormat:@"https://news.at.zhihu.com/api/4/news/before/%@", urlstr];
+    //@"https://news.at.zhihu.com/api/4/news/before/20201026";
     urlStr = [urlStr stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
 
     NSURL *url = [NSURL URLWithString:urlStr];
@@ -83,6 +86,80 @@ static Manager *manager = nil;
     }];
 
     //启动任务
+    [task resume];
+    
+}
+//评论点赞数
+- (void)getExtraModel:(ExtraBlock)succeedBlock error:(errorBlock)errorblock ID:(NSString *)IDstr {
+    
+    NSString *urlStr = [NSString stringWithFormat:@"https://news-at.zhihu.com/api/4/story-extra/%@", IDstr];
+    NSURL *url = [NSURL URLWithString:urlStr];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    
+    NSURLSessionTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+          
+        if (error == nil) {
+            NSMutableDictionary * dictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            
+            NSLog(@"%@", dictionary);
+            
+            [dictionary setObject:IDstr forKey:@"cc"];
+            ExtraModel *extraModel = [[ExtraModel alloc] initWithDictionary:dictionary error:&error];
+            succeedBlock(extraModel);
+        }
+       
+    }];
+    
+    [task resume];
+    
+}
+
+//长评论
+- (void)getLongCommentModel:(LongCommentBlock)succeedBlock error:(errorBlock)errorblock ID:(NSString *)idStr {
+    NSString *str = [NSString stringWithFormat:@"https://news-at.zhihu.com/api/4/story/%@/long-comments", idStr];
+    NSURL *url = [NSURL URLWithString:str];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    
+    NSURLSessionTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (error == nil) {
+            
+            id dictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            
+            LongCommentModel *longCommentModel = [[LongCommentModel alloc] initWithDictionary:dictionary error:&error];
+            
+            succeedBlock(longCommentModel);
+            
+        }
+    }];
+    
+    [task resume];
+    
+}
+
+
+//短评论
+- (void)getShortCommentModel:(ShortCommentBlock)succeedBlock error:(errorBlock)errorblock ID:(NSString *)idStr {
+    
+    NSString *str = [NSString stringWithFormat:@"https://news-at.zhihu.com/api/4/story/%@/short-comments", idStr];
+    NSURL *url = [NSURL URLWithString:str];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    
+    NSURLSessionTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        id dictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        
+        ShortCommentModel *shortCommentModel = [[ShortCommentModel alloc] initWithDictionary:dictionary error:&error];
+        
+        succeedBlock(shortCommentModel);
+        
+    }];
+    
     [task resume];
     
 }

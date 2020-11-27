@@ -7,6 +7,7 @@
 //
 
 #import "MyCollectionViewController.h"
+#import "MyCollectionView.h"
 
 @interface MyCollectionViewController ()
 
@@ -17,6 +18,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor whiteColor];
+    _myView = [[MyCollectionView alloc] initWithFrame:self.view.frame];
+    [self.view addSubview:_myView];
+    [_myView initView];
+    _myView.backgroundColor = [UIColor redColor];
+    
 }
 
 /*

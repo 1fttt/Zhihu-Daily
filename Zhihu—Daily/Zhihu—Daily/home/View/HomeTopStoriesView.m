@@ -7,49 +7,77 @@
 //
 
 #import "HomeTopStoriesView.h"
-
+#import "ExtraModel.h"
 
 
 @implementation HomeTopStoriesView
 
-
-
 - (void)initView {
     self.backgroundColor = [UIColor whiteColor];
-    _wkWebView = [[WKWebView alloc] initWithFrame:self.bounds];
-    [self addSubview:_wkWebView];
-    [_wkWebView loadRequest:[NSURLRequest requestWithURL:[ NSURL URLWithString:_storyURLStr]]];
     
-//    UIBarButtonItem *item1 = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@""] style:UIBarButtonItemStylePlain target:self action:@selector(pressBack)];
     
-//    _plView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 50, 40)];
-//
-//    _pinglunButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//    _pinglunButton.frame = CGRectMake(0, 0, 20, 35);
-//    [_pinglunButton setImage:[UIImage imageNamed:@"pinglun.png"] forState:UIControlStateNormal];
-//    [_plView addSubview:_pinglunButton];
-//
-//    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(19, 0, 25, 35)];
-//    [_plView addSubview:label];
-//    label.text = @"11";
     
+//    _wkWebView = [[WKWebView alloc] initWithFrame:self.bounds];
+//    [self addSubview:_wkWebView];
+//    [_wkWebView loadRequest:[NSURLRequest requestWithURL:[ NSURL URLWithString:_storyURLStr]]];
+    
+
+    
+    _webScrollView = [[UIScrollView alloc] initWithFrame:self.frame];
+    _webScrollView.tag = 1;
+
+    int i = 0;
+    for (NSString *str in _storyURLArray) {
+        CGFloat webViewY = i * self.frame.size.height;
+        WKWebView *webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, webViewY, self.frame.size.width, self.frame.size.height)];
+        webView.tag = i;
+        
+
+        [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
+        
+        [_webScrollView addSubview:webView];
+        i++;
+    }
+    
+    _webScrollView.showsVerticalScrollIndicator = NO;
+    _webScrollView.contentSize = CGSizeMake(414, i * self.frame.size.height);
+    _webScrollView.pagingEnabled = YES;
+    
+    [self addSubview:_webScrollView];
+    
+    [self.webScrollView addObserver:self forKeyPath:@"contentOffest" options:NSKeyValueObservingOptionNew context:nil];
     
 }
 
 
 - (void)initToolbarItem {
-    _itemView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 49, 40)];
-    _itemButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _itemButton.frame = CGRectMake(0, 5, 24, 30);
-    //[_pinglunButton setImage:[UIImage imageNamed:@"pinglun.png"] forState:UIControlStateNormal];
-    [_itemView addSubview:_itemButton];
     
-    _itemLabel = [[UILabel alloc] initWithFrame:CGRectMake(24, 0, 25, 30)];
-    _itemLabel.font = [UIFont systemFontOfSize:10];
-    [_itemView addSubview:_itemLabel];
+    //设置工具栏评论点赞样式
     
-    //_label.text = @"11";
+    _commentItemView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 49, 40)];
+    _popularityItemView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 49, 40)];
+    
+    _commentButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _commentButton.frame = CGRectMake(0, 5, 24, 30);
+    [_commentItemView addSubview:_commentButton];
+    
+    _popularityButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _popularityButton.frame = CGRectMake(0, 5, 24, 30);
+    [_popularityItemView addSubview:_popularityButton];
+    
+    _commentLabel = [[UILabel alloc] initWithFrame:CGRectMake(24, 0, 25, 30)];
+    _commentLabel.font = [UIFont systemFontOfSize:10];
+    [_commentItemView addSubview:_commentLabel];
+    
+    _popularityLabel = [[UILabel alloc] initWithFrame:CGRectMake(24, 0, 25, 30)];
+    _popularityLabel.font = [UIFont systemFontOfSize:10];
+    [_popularityItemView addSubview:_popularityLabel];
+    
+
     
 }
+
+
+
 
 @end

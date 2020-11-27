@@ -29,9 +29,17 @@
 }
 
 - (void)layoutSubviews {
-    _titleLabel.frame = CGRectMake(20, 30, 280, 30);
-    _hintLabel.frame = CGRectMake(20, 60, 200, 20);
-    _imageview.frame = CGRectMake(300, 15, 80, 80);
+    _titleLabel.frame = CGRectMake(20, 20, 280, 50);
+    _hintLabel.frame = CGRectMake(20, 80, 200, 20);
+    _imageview.frame = CGRectMake(318, 19, 80, 80);
+    
+    //_titleLabel.font = [UIFont systemFontOfSize:17];
+    _titleLabel.font = [UIFont boldSystemFontOfSize:18];
+
+    //_titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    _titleLabel.numberOfLines = 2;
+    _hintLabel.font = [UIFont systemFontOfSize:14];
+    _hintLabel.textColor = [UIColor colorWithWhite:0.56 alpha:1];
 }
 
 @end
